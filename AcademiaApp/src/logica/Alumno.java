@@ -8,5 +8,5 @@ public class Alumno {
     private int numeroAlumno;
     private String ciclo;
     private int curso;
-    private Date fechaMatriculacion;
+    
 }
