@@ -1,4 +1,4 @@
-package academiaapp;
+package logica;
 
 public class AcademiaApp {
 
