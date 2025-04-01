@@ -1,28 +1,20 @@
 package logica;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.util.Scanner;
 
 public class AcademiaApp {
 
      public static void main(String[] args) {
-	  File f = new File("extra/modulos_por_curso.csv");
-	  String texto = "";
-	  String [] dividido = {};
-	  String curso = "";
-	  try (FileReader fr = new FileReader(f); BufferedReader br = new BufferedReader(fr);) {
-	       texto = br.readLine();
-	       texto = texto.replace("\"", "");
-	       dividido = texto.split(", ");
-	       curso = dividido[0];
-	  } catch (Exception e) {
-	       System.out.println("No se pudo encontrar el archivo");
-	  }
-	  System.out.println(texto);
-	  System.out.println(curso);
-	  System.out.println(dividido[0]);
-	  System.out.println(dividido[1]);
+	  Scanner sc = new Scanner(System.in);
+	  
+	  System.out.println("Ciclo: ");
+	  String ciclo = sc.nextLine();
+	  
+	  System.out.println("Curso: ");
+	  String curso = sc.nextLine();
+	  
+	  Alumno a = new Alumno("Jose", "Espadas", 29, 1, ciclo, curso);
+	  System.out.println(a.toString());
      }
 
 }

@@ -9,7 +9,8 @@ public class Modulo {
      private int nota3;
 
      // Constructores posibles (por defecto se crea el Alumno sin notas)
-     public Modulo() {
+     public Modulo(String nombre) {
+	  this.nombre = nombre;
      }
 
      // Getters
@@ -47,8 +48,10 @@ public class Modulo {
      }
 
      // Metodo toString
+     @Override
      public String toString() {
-	  return "\nNota 1: " + this.nota1 + "\nNota 2: " + this.nota2 + "\nNota 3: " + this.nota3;
+	  return "\n" + this.nombre +
+	      "\nNota 1: " + this.nota1 + "\nNota 2: " + this.nota2 + "\nNota 3: " + this.nota3;
      }
 
      // Metodo para devolver la nota final (no puedo hacerlo con null???)

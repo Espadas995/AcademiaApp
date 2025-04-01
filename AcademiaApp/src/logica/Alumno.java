@@ -1,5 +1,9 @@
 package logica;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Alumno {
@@ -10,20 +14,22 @@ public class Alumno {
      private int edad;
      private int numeroAlumno;
      private String ciclo;
-     private int curso;
+     private String curso;
      private ArrayList<Modulo> modulos;
 
      // Constructores (vacio, modulos por defecto del curso y ciclo, personalizable)
      public Alumno() {
      }
 
-     public Alumno(String nombre, String apellidos, int edad, int numeroAlumno, String ciclo, int curso) {
+     public Alumno(String nombre, String apellidos, int edad, int numeroAlumno, 
+	 String ciclo, String curso) {
 	  this.nombre = nombre;
 	  this.apellidos = apellidos;
 	  this.edad = edad;
 	  this.numeroAlumno = numeroAlumno;
 	  this.ciclo = ciclo;
 	  this.curso = curso;
+	  this.modulos = getModulosDefecto(ciclo, curso);
      }
 
      // Getters
@@ -47,7 +53,7 @@ public class Alumno {
 	  return ciclo;
      }
 
-     public int getCurso() {
+     public String getCurso() {
 	  return curso;
      }
 
@@ -72,25 +78,43 @@ public class Alumno {
 	  this.ciclo = ciclo;
      }
 
-     public void setCurso(int curso) {
+     public void setCurso(String curso) {
 	  this.curso = curso;
      }
 
      // Método toString()
      @Override
      public String toString() {
-	  return "Alumno -> " + "nombre: " + nombre + ", apellidos: " + apellidos
-	      + "\nEdad:" + edad + "años\nNumero de alumno -> " + numeroAlumno
-	      + "\nCiclo: " + ciclo + ", Curso:" + curso + "\nModulos: " + modulos + '}';
+	  return "Alumno -> " + "Nombre, Apellidos: " + nombre + " " + apellidos
+	      + "\nEdad:" + edad + " años\nNúmero de alumno -> " + numeroAlumno
+	      + "\nCiclo: " + ciclo + ", Curso:" + curso + "\n\nModulos: " + modulos.toString();
      }
-     
+
      /* 
      Si al construir el Alumno, se da un curso y ciclo por defecto
      Se utilizará el siguiente método para construir el array de Módulos
-     */
-     public ArrayList <Modulo> setModulosDefecto (String ciclo, int curso) {
-	  ArrayList <Modulo> modulos = new ArrayList();
-	  
+     Usaremos ArrayList porque se va a iterar sobre el array, no añadir y eliminar
+      */
+     public ArrayList<Modulo> getModulosDefecto(String ciclo, String curso) {
+	  ArrayList<Modulo> modulos = new ArrayList();
+	  File modulosCurso = new File("extra/modulos_por_curso.csv");
+	  String lineaDatos = "";
+	  String [] datosCiclo = {};
+	  try (FileReader fr = new FileReader(modulosCurso); 
+	      BufferedReader br = new BufferedReader(fr)) {
+	       while((lineaDatos = br.readLine()) != null){
+		    lineaDatos = lineaDatos.replace("\"", "");
+		    datosCiclo = lineaDatos.split(", ");
+		    if(datosCiclo[0].equalsIgnoreCase(ciclo) && datosCiclo[1].equalsIgnoreCase(curso)){
+			 for(int x=2; x<datosCiclo.length; x++){
+			      modulos.add(new Modulo(datosCiclo[x]));
+			 }
+			 break;
+		    }
+	       }
+	  } catch (IOException e) {
+	       System.out.println("No se ha podido leer el archivo CSV");
+	  }
 	  return modulos;
      }
 
