@@ -1,6 +1,7 @@
 package logica;
 
 public class Modulo {
+
      // Atributos de la clase: notas
      private String nombre;
      private int nota1;
@@ -12,29 +13,35 @@ public class Modulo {
      }
 
      // Getters
-     public String getNombre(){
+     public String getNombre() {
 	  return this.nombre;
      }
+
      public int getNota1() {
 	  return this.nota1;
      }
+
      public int getNota2() {
 	  return this.nota2;
      }
+
      public int getNota3() {
 	  return this.nota3;
      }
 
      // Setters
-     public void setNombre(String nombre){
+     public void setNombre(String nombre) {
 	  this.nombre = nombre;
      }
+
      public void setNota1(int nota1) {
 	  this.nota1 = nota1;
      }
+
      public void setNota2(int nota2) {
 	  this.nota2 = nota2;
      }
+
      public void setNota3(int nota3) {
 	  this.nota3 = nota3;
      }
