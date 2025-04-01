@@ -12,7 +12,7 @@ public class Alumno {
      private String nombre;
      private String apellidos;
      private int edad;
-     private int numeroAlumno;
+     private int numeroAlumno; // Se debe implementar de forma automatica !! Static?
      private String ciclo;
      private String curso;
      private ArrayList<Modulo> modulos;
@@ -30,6 +30,17 @@ public class Alumno {
 	  this.ciclo = ciclo;
 	  this.curso = curso;
 	  this.modulos = getModulosDefecto(ciclo, curso);
+     }
+     
+     public Alumno(String nombre, String apellidos, int edad, int numeroAlumno,
+	 String ciclo, String curso, ArrayList <Modulo> modulosPersonalizados) {
+	  this.nombre = nombre;
+	  this.apellidos = apellidos;
+	  this.edad = edad;
+	  this.numeroAlumno = numeroAlumno;
+	  this.ciclo = ciclo;
+	  this.curso = curso;
+	  this.modulos = modulosPersonalizados;
      }
 
      // Getters
