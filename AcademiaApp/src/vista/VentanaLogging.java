@@ -90,13 +90,18 @@ public class VentanaLogging extends JFrame implements ActionListener {
 	       String linea = "";
 	       String [] valores = {};
 	       String tipoAcceso = "";
+	       String inputUsuario = campoUsuario.getText().trim();
+	       String inputContrasena = String.valueOf(campoContrasena.getPassword());
+	       System.out.println(inputUsuario);
+	       System.out.println(inputContrasena);
+	       
 	       boolean flag = false;
 	       try (FileReader fr = new FileReader(acceso); BufferedReader br = new BufferedReader(fr)) {
 		    while((linea = br.readLine()) != null){
 			 linea = linea.replace("\"", "");
 			 valores = linea.split(", ");
-			 if (valores[0].equals(campoUsuario.getText())){
-			      if(valores[1].equals(campoContrasena.getPassword())){
+			 if (valores[0].equals(inputUsuario)){
+			      if(valores[1].equals(inputContrasena)){
 				   flag = true;
 				   tipoAcceso = valores[2];
 			      }
@@ -109,9 +114,14 @@ public class VentanaLogging extends JFrame implements ActionListener {
 			 if(tipoAcceso.equals("profesor")){
 			      // Nueva ventana de profesor
 			      this.acceso = true;
+			      this.dispose();
+			      VentanaProfesores vp = new VentanaProfesores();
+			      vp.setVisible(true);
 			 }
 			 else {
 			      // Nueva ventana de alumno
+			      this.acceso = true;
+			      this.dispose();
 			 }
 		    } else {
 			 //JDialog!

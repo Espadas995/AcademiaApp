@@ -3,6 +3,7 @@ package vista;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
@@ -78,12 +79,14 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	       VentanaLogging vl = new VentanaLogging();
 	       vl.setVisible(true);
 	       vl.setAlwaysOnTop(true);
+	       this.dispose();
 	  }
 
 	  if (botonPulsado == botonProfesor) {
 	       VentanaLogging vl = new VentanaLogging();
 	       vl.setVisible(true);
 	       vl.setAlwaysOnTop(true);
+	       this.dispose();
 	  }
      }
 }
