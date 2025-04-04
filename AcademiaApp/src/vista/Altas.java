@@ -4,8 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.*;
 import javax.swing.*;
 import logica.Alumno;
 
@@ -100,6 +99,7 @@ public class Altas extends JFrame implements ActionListener {
 	  if (botonPulsado == botonSalir) {
 	       this.dispose();
 	  }
+
 	  if (botonPulsado == botonAlta) {
 	       String nombreAlumno = campoNombre.getText();
 	       String apellidosAlumno = campoApellidos.getText();
@@ -107,13 +107,17 @@ public class Altas extends JFrame implements ActionListener {
 	       String cicloAlumno = campoCiclo.getText();
 	       String cursoAlumno = campoCurso.getText();
 	       Alumno a = new Alumno(nombreAlumno, apellidosAlumno, edadAlumno, cicloAlumno, cursoAlumno);
+
+	       // Codigo para fichero
 	       File f = new File("extra/alumno_generado.txt");
 	       try (FileWriter fw = new FileWriter(f); BufferedWriter bw = new BufferedWriter(fw)) {
 		    bw.write(a.toString());
-			bw.flush();
+		    bw.flush();
 	       } catch (IOException ex) {
-
 	       }
+
+	       // Codigo para BBDD
+
 	       this.dispose();
 	  }
      }
