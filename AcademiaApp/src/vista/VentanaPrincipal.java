@@ -75,16 +75,16 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	  // Condicionales en funcion de que boton sea pulsado}
 	  if (botonPulsado == botonAlumno) {
-	       VentanaLogging vl = new VentanaLogging();
-	       vl.setVisible(true);
-	       vl.setAlwaysOnTop(true);
+	       VentanaLoggingAlumno vla = new VentanaLoggingAlumno();
+	       vla.setVisible(true);
+	       vla.setAlwaysOnTop(true);
 	       this.dispose();
 	  }
 
 	  if (botonPulsado == botonProfesor) {
-	       VentanaLoggingProfesor vl = new VentanaLoggingProfesor();
-	       vl.setVisible(true);
-	       vl.setAlwaysOnTop(true);
+	       VentanaLoggingProfesor vlp = new VentanaLoggingProfesor();
+	       vlp.setVisible(true);
+	       vlp.setAlwaysOnTop(true);
 	       this.dispose();
 	  }
      }

@@ -13,11 +13,7 @@ public class AcademiaApp {
 	  
 	  
 	  VentanaPrincipal vp = new VentanaPrincipal();
-	  vp.setVisible(true);
-	  VentanaLogging vl = new VentanaLogging();
-	  if(vl.acceso == true){
-	       vp.dispose();
-	  }
+	  vp.setVisible(true);	  
      }
 
 }

@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -22,11 +23,11 @@ public class VentanaLoggingProfesor extends VentanaLogging {
 	  botonPulsado = (JButton) ae.getSource();
 
 	  // Condicionales en función del botón pulsado
-	  if (botonPulsado == salir) {
+	  if (botonPulsado == this.salir) {
 	       this.dispose();
 	  }
 
-	  if (botonPulsado == ingresar) {
+	  if (botonPulsado == this.ingresar) {
 	       File accesoProfesores = new File("extra/acceso_profesores.csv");
 	       String linea = "";
 	       String[] valores = {};

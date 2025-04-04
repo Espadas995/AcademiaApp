@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JButton;
+import logica.Alumno;
 
-public class VentanaLoggingAlumno extends VentanaLogging{
+public class VentanaLoggingAlumno extends VentanaLogging {
+          
      // Constructor
      public VentanaLoggingAlumno() {
 	  super();
@@ -48,9 +50,10 @@ public class VentanaLoggingAlumno extends VentanaLogging{
 		    System.out.println("No se ha podido reconocer el archivo de control de acceso");
 	       } finally {
 		    if (this.acceso == true) {
-			 // Nueva ventana de profesor
+			 // Nueva ventana de alumno
 			 this.dispose();
-			 VentanaAlumno va = new VentanaAlumno();
+			 Alumno a = new Alumno("Jose", "Espadas", 29, "Desarrollo de aplicaciones multiplataforma", "Primero");
+			 VentanaAlumno va = new VentanaAlumno(a);
 			 va.setVisible(true);
 
 		    } else {

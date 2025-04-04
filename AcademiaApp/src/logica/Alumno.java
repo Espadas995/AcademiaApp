@@ -67,6 +67,10 @@ public class Alumno {
      public String getCurso() {
 	  return curso;
      }
+     
+     public ArrayList <Modulo> getModulos(){
+	  return modulos;
+     }
 
      // Setters
      public void setNombre(String nombre) {
