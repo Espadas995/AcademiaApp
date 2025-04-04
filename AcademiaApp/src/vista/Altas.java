@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import logica.Alumno;
 
@@ -117,6 +119,13 @@ public class Altas extends JFrame implements ActionListener {
 	       }
 
 	       // Codigo para BBDD
+	       try (Connection con = DriverManager.getConnection("jdbc:mariadb://localhost/project", "user", "password");) {
+		    Statement st = con.createStatement();
+		    st.executeUpdate("INSERT INTO alumno VALUES(" + nombreAlumno + ", " + apellidosAlumno + ", " + edadAlumno + ", " +
+			cicloAlumno + ", " + cursoAlumno + ")");
+	       } catch (SQLException ex) {
+		    Logger.getLogger(Altas.class.getName()).log(Level.SEVERE, null, ex);
+	       }
 
 	       this.dispose();
 	  }
