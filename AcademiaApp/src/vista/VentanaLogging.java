@@ -12,7 +12,7 @@ import javax.swing.*;
 public class VentanaLogging extends JFrame implements ActionListener {
 
      // Definimos una variable de acceso concedido o rechazado
-     boolean acceso = false;
+     protected boolean acceso = false;
 
      // Definimos los elementos que tendrá la ventana de logging: paneles
      JPanel panelLogging = new JPanel();

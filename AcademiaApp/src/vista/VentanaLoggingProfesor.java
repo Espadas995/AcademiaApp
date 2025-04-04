@@ -33,16 +33,14 @@ public class VentanaLoggingProfesor extends VentanaLogging {
 	       String[] valores = {};
 	       String inputUsuario = campoUsuario.getText().trim();
 	       String inputContrasena = String.valueOf(campoContrasena.getPassword());
-	       System.out.println(inputUsuario);
-	       System.out.println(inputContrasena);
 
 	       try (FileReader fr = new FileReader(accesoProfesores); BufferedReader br = new BufferedReader(fr)) {
 		    while ((linea = br.readLine()) != null) {
-			 linea = linea.replace("\"", "");
+			 linea = linea.replace("\"", "").trim();
 			 valores = linea.split(", ");
-			 if (valores[0].equals(inputUsuario)) {
-			      if (valores[1].equals(inputContrasena)) {
-				   this.acceso = true;
+			 if (inputUsuario.equalsIgnoreCase(valores[0])) {
+			      if (inputContrasena.equalsIgnoreCase(valores[1])) {
+				   acceso = true;
 			      }
 			 }
 		    }

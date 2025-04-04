@@ -9,14 +9,11 @@ public class VentanaAlumno extends JFrame{
      // Elementos de la ventana
      JPanel panelPrincipal = new JPanel();
      
-     // 1 panel por cada modulo??? : nombre, nota1, nota2, nota 3??? arraylenght?
-     // JPanel panelModulo1 = new JPanel();
-     
      // Constructor 
      public VentanaAlumno(Alumno alumno){
 	  
 	  // Configuracion general
-	  this.setSize(900,00);
+	  this.setSize(600,800);
 	  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	  this.setContentPane(panelPrincipal);
 	  panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
