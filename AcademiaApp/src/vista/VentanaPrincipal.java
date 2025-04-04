@@ -82,7 +82,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	  }
 
 	  if (botonPulsado == botonProfesor) {
-	       VentanaLogging vl = new VentanaLogging();
+	       VentanaLoggingProfesor vl = new VentanaLoggingProfesor();
 	       vl.setVisible(true);
 	       vl.setAlwaysOnTop(true);
 	       this.dispose();

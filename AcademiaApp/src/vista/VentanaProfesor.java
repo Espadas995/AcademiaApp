@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class VentanaProfesores extends JFrame implements ActionListener {
+public class VentanaProfesor extends JFrame implements ActionListener {
 
      // Definimos los elementos que tendrá esta ventana
      JPanel panel = new JPanel();
@@ -19,7 +19,7 @@ public class VentanaProfesores extends JFrame implements ActionListener {
      ImageIcon imagenListar = new ImageIcon("extra/imagenes/listar.png");
 
      // Generamos el constructor
-     public VentanaProfesores() {
+     public VentanaProfesor() {
 
 	  // Indicaciones generales
 	  this.setContentPane(panel);

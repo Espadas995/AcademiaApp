@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.swing.*;
 
 public class VentanaLogging extends JFrame implements ActionListener {
-     
+
      // Definimos una variable de acceso concedido o rechazado
      public boolean acceso = false;
 
@@ -73,60 +73,6 @@ public class VentanaLogging extends JFrame implements ActionListener {
 
      @Override
      public void actionPerformed(ActionEvent ae) {
-
-	  // Creamos un boton que recoja la acción realizada
-	  JButton botonPulsado = new JButton();
-	  botonPulsado = (JButton) ae.getSource();
-
-	  // Condicionales en función del botón pulsado
-	  if (botonPulsado == salir) {
-	       this.dispose();
-	  }
-
-	  if (botonPulsado == ingresar) {
-	       File acceso = new File("extra/acceso.csv");
-	       String linea = "";
-	       String [] valores = {};
-	       String tipoAcceso = "";
-	       String inputUsuario = campoUsuario.getText().trim();
-	       String inputContrasena = String.valueOf(campoContrasena.getPassword());
-	       System.out.println(inputUsuario);
-	       System.out.println(inputContrasena);
-	       
-	       boolean flag = false;
-	       try (FileReader fr = new FileReader(acceso); BufferedReader br = new BufferedReader(fr)) {
-		    while((linea = br.readLine()) != null){
-			 linea = linea.replace("\"", "");
-			 valores = linea.split(", ");
-			 if (valores[0].equals(inputUsuario)){
-			      if(valores[1].equals(inputContrasena)){
-				   flag = true;
-				   tipoAcceso = valores[2];
-			      }
-			 }
-		    }
-	       } catch (IOException e) {
-		    System.out.println("No se ha podido reconocer el archivo de control de acceso");
-	       } finally {
-		    if (flag == true){
-			 if(tipoAcceso.equals("profesor")){
-			      // Nueva ventana de profesor
-			      this.acceso = true;
-			      this.dispose();
-			      VentanaProfesores vp = new VentanaProfesores();
-			      vp.setVisible(true);
-			 }
-			 else {
-			      // Nueva ventana de alumno
-			      this.acceso = true;
-			      this.dispose();
-			 }
-		    } else {
-			 //JDialog!
-			 DialogoErrorLogging dialogo = new DialogoErrorLogging();
-			 dialogo.setVisible(true);
-		    }
-	       }
-	  }
+	  
      }
 }
