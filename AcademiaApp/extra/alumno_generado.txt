@@ -1,0 +1,34 @@
+Alumno -> Nombre, Apellidos: Jose Espadas
+Edad:29 años
+Número de alumno -> 1
+Ciclo: desarrollo de aplicaciones multiplataforma, Curso:primero
+
+Modulos: [
+Bases de datos
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+Entornos de desarrollo
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+Lenguajes de marcas y sistemas de gestion de informacion
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+Programacion
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+Sistemas informaticos
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+Ampliacion de programacion
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0, 
+IPE
+Nota 1: 0
+Nota 2: 0
+Nota 3: 0]

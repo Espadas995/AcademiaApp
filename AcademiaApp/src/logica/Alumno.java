@@ -13,6 +13,7 @@ public class Alumno {
      private String apellidos;
      private int edad;
      private int numeroAlumno; // Se debe implementar de forma automatica !! Static?
+     private static int contadorNumeroAlumno = 0;
      private String ciclo;
      private String curso;
      private ArrayList<Modulo> modulos;
@@ -21,23 +22,22 @@ public class Alumno {
      public Alumno() {
      }
 
-     public Alumno(String nombre, String apellidos, int edad, int numeroAlumno, 
-	 String ciclo, String curso) {
+     public Alumno(String nombre, String apellidos, int edad, String ciclo, String curso) {
 	  this.nombre = nombre;
 	  this.apellidos = apellidos;
 	  this.edad = edad;
-	  this.numeroAlumno = numeroAlumno;
+	  this.numeroAlumno = generarIdAlumno();
 	  this.ciclo = ciclo;
 	  this.curso = curso;
 	  this.modulos = getModulosDefecto(ciclo, curso);
      }
      
-     public Alumno(String nombre, String apellidos, int edad, int numeroAlumno,
+     public Alumno(String nombre, String apellidos, int edad, 
 	 String ciclo, String curso, ArrayList <Modulo> modulosPersonalizados) {
 	  this.nombre = nombre;
 	  this.apellidos = apellidos;
 	  this.edad = edad;
-	  this.numeroAlumno = numeroAlumno;
+	  this.numeroAlumno = generarIdAlumno();
 	  this.ciclo = ciclo;
 	  this.curso = curso;
 	  this.modulos = modulosPersonalizados;
@@ -98,7 +98,7 @@ public class Alumno {
      public String toString() {
 	  return "Alumno -> " + "Nombre, Apellidos: " + nombre + " " + apellidos
 	      + "\nEdad:" + edad + " años\nNúmero de alumno -> " + numeroAlumno
-	      + "\nCiclo: " + ciclo + ", Curso:" + curso + "\n\nModulos: " + modulos.toString();
+	      + "\nCiclo: " + ciclo + ", Curso: " + curso + "\n\nModulos: " + modulos.toString() +"\n";
      }
 
      /* 
@@ -127,6 +127,12 @@ public class Alumno {
 	       System.out.println("No se ha podido leer el archivo CSV");
 	  }
 	  return modulos;
+     }
+     
+     // Generamos un metodo para autogenerar el numero de id del alumno
+     public int generarIdAlumno(){
+	  contadorNumeroAlumno++;
+	  return contadorNumeroAlumno;
      }
 
 }
